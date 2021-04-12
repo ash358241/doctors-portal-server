@@ -22,7 +22,7 @@ client.connect(err => {
   //making api
   app.post('/addAppointment', (req, res) => {
       const appointment = req.body;
-      console.log(appointment);
+    //   console.log(appointment);
       appointmentCollection.insertOne(appointment)
       .then(result => {
           res.send(result.insertedCount > 0);
@@ -31,7 +31,7 @@ client.connect(err => {
 
   app.post('/appointmentsByDate', (req, res) => {
     const date = req.body;
-    console.log(date.date);
+    // console.log(date.date);
     appointmentCollection.find({date: date.date})
     .toArray((err, documents) => {
         res.send(documents);
